@@ -12,59 +12,39 @@ mixin item(itemData, size)
 mixin small(itemData)
   .dp_itemImage.dp_itemSmallImage
     a(href="")
-      img.FormatImage(src="#{itemData.Image}")
+      img.FormatImage(src="http://akimages.shoplocal.com/dyn_li/158.0.88.0/#{itemData.Image}")
     .dp_ratingsReviews.excludeFromMobile.FormatRatings
     .clear
-  .dp_price.DealDescription.FormatDeal.FormatDealMediumSmall
-    .dp_itemInfo
+  .dp_price.DealDescription.FormatDeal.FormatDealMediumSmall #{itemData.DealDescription}
+  .dp_itemInfo
     h3.dp_title
-      span.ellipsis_text.Title
-    .dp_validdates.FormatDate.FormatSneakPeekDate
+      span.ellipsis_text.Title #{itemData.Title}
+      .dp_validdates.FormatDate.FormatSneakPeekDate
     .clear
   .clear
-  .centering_ForMobile
-    a.includeInMobile.see_details_button(href="") See More Details
-    a.includeInMobile.fl.add_to_cart_button(href="") Add To Cart
-    .clear
 
 mixin large(itemData)
   .dp_itemImage.dp_itemLargeImage
     a(href="")
-     img.FormatImage(src="#{itemData.Image}")
+     img.FormatImage(src="http://akimages.shoplocal.com/dyn_li/300.0.88.0/#{itemData.Image}")
     .dp_ratingsReviews.excludeFromMobile.FormatRatings
     .clear
   .dp_itemInfo
-    .dp_price.DealDescription.FormatDeal
+    .dp_price.DealDescription.FormatDeal #{itemData.DealDescription}
     h3.dp_title
       span.ellipsis_text.Title
     .dp_validdates.FormatDate.FormatSneakPeekDate
     .clear
     .clear
   .clear
-  .centering_ForMobile
-    a.includeInMobile.see_details_button(href="") See More Details
-    a.includeInMobile.fl.add_to_cart_button(href="") Add To Cart
-    .clear
   .gradientOverlay
 
 mixin specialEvent(itemData)
-  .dp_itemImage.dp_itemLargeImage
+  .dp_itemImage
     a(href="")
-     img.FormatImage(src="#{itemData.Image}")
-    .dp_ratingsReviews.excludeFromMobile.FormatRatings
-    .clear
-  .dp_itemInfo
-    .dp_price.DealDescription.FormatDeal
-    h3.dp_title
-      span.ellipsis_text.Title
-    .dp_validdates.FormatDate.FormatSneakPeekDate
-    .clear
+     img.FormatImage(src="http://akimages.shoplocal.com/dyn_li/921.0.88.0/#{itemData.Image}")
     .clear
   .clear
-  .centering_ForMobile
-    a.includeInMobile.see_details_button(href="") See More Details
-    a.includeInMobile.fl.add_to_cart_button(href="") Add To Cart
-    .clear
   .gradientOverlay
 
 block content
@@ -93,7 +73,7 @@ block content
             +item(Items[8], "small")
           .clear
         .clear
-        .ad_banner.ad_banner1.excludeFromMobile
+        .ad_header.ad_header1.excludeFromMobile
       .clear
       .sl_dynamic_footer.PrimaryFooter.action-footer-text
   else
