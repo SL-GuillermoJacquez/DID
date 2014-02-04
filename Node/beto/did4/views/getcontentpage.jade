@@ -19,7 +19,6 @@ mixin small(itemData)
   .dp_itemInfo
     h3.dp_title
       span.ellipsis_text.Title #{itemData.Title}
-      .dp_validdates.FormatDate.FormatSneakPeekDate
     .clear
   .clear
 
@@ -32,9 +31,8 @@ mixin large(itemData)
   .dp_itemInfo
     .dp_price.DealDescription.FormatDeal #{itemData.DealDescription}
     h3.dp_title
-      span.ellipsis_text.Title
-    .dp_validdates.FormatDate.FormatSneakPeekDate
-    .clear
+      span.ellipsis_text.Title #{itemData.Title}
+    .dp_description #{itemData.Description}
     .clear
   .clear
   .gradientOverlay
@@ -45,7 +43,6 @@ mixin specialEvent(itemData)
      img.FormatImage(src="http://akimages.shoplocal.com/dyn_li/921.0.88.0/#{itemData.Image}")
     .clear
   .clear
-  .gradientOverlay
 
 block content
 
@@ -53,24 +50,33 @@ block content
     .dynamicPageContainer
       .dynamicPageMaincontent
         .dynamicPageItems.dynamicPageItems_nineItem
-          .dp_itemLarge.dp_specialEvent.nineItem_1
-            +item(Items[0], "large")
+          .dp_itemLarge.nineItem_1
+            if (typeof Items[0] !== "undefined")
+              +item(Items[0], "large")
           .dp_itemSmall.nineItem_2
-            +item(Items[1], "small")
+            if (typeof Items[1] !== "undefined")
+              +item(Items[1], "small")
           .dp_itemSmall.nineItem_3
-            +item(Items[2], "small")
+            if (typeof Items[2] !== "undefined")
+              +item(Items[2], "small")
           .dp_itemSmall.nineItem_4
-            +item(Items[3], "small")
+            if (typeof Items[3] !== "undefined")
+              +item(Items[3], "small")
           .dp_itemSmall.nineItem_5
-            +item(Items[4], "small")
+            if (typeof Items[4] !== "undefined")
+              +item(Items[4], "small")
           .dp_itemSmall.nineItem_6
-            +item(Items[5], "small")
+            if (typeof Items[5] !== "undefined")
+              +item(Items[5], "small")
           .dp_itemSmall.nineItem_7
-            +item(Items[6], "small")
+            if (typeof Items[6] !== "undefined")
+              +item(Items[6], "small")
           .dp_itemSmall.nineItem_8
-            +item(Items[7], "small")
+            if (typeof Items[7] !== "undefined")
+              +item(Items[7], "small")
           .dp_itemSmall.nineItem_9
-            +item(Items[8], "small")
+            if (typeof Items[8] !== "undefined")
+              +item(Items[8], "small")
           .clear
         .clear
         .ad_header.ad_header1.excludeFromMobile
