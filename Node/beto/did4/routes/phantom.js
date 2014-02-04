@@ -1,8 +1,3 @@
-
-/*
- * GET home page.
- */
-
 exports.data = function(req, res){
 
 	var phantomProxy = require('phantom-proxy');
@@ -60,10 +55,10 @@ exports.data = function(req, res){
 						result = JSON.parse(result);						
 						
 						if (result) {
-							res.render('index', { coords: result });
+							res.render('phantom', { coords: result });
 						}		
 						else{
-							res.render('index', { coords: {height:-1} });
+							res.render('phantom', { coords: {height:-1} });
 						}						
 						
 						
@@ -77,6 +72,8 @@ exports.data = function(req, res){
 
 
 exports.image = function(req, res){
+
+	//console.log('wft?')
 
 	var phantomProxy = require('phantom-proxy');
 
@@ -92,19 +89,22 @@ exports.image = function(req, res){
 		proxy.page.set('viewportSize', { width:900, height:900 }, function (result) {
 			console.log(result.toString().cyan);
 			//worldCallback.call(self);		  
-									
 			
-			page.open('http://localhost:3000/test.html', function () {
+			var pagenumber = req.query.pagenumber;
+			var url = "http://" + req.get('host') + "/getcontentpage?campaignid=33b830157262d019&siteid=1469&contentgroupid=500317&storeid=2540751&returnreviewflag=Y&languageid=1&pagenumber=" + pagenumber
+			
+			page.open(url, function () {
 				page.waitForSelector('body', function () {
-					console.log('body tag present');									
+					console.log('body tag presented!!!!!!!');									
 					
-					page.render('./scratch/scratch.png', function (result) {						
-						res.redirect('http://' + req.get('host') + '/screenshots/scratch.png');						
-						proxy.end(function () {
-						  console.log('done');
-						});
-					});				
-					
+					page.render('./scratch/scratch_' + pagenumber + '.jpg', function (result) {							
+						//proxy.end(function () {
+						//  console.log('done');
+						//});
+						
+						res.redirect('http://' + req.get('host') + '/screenshots/scratch_' + pagenumber + '.jpg');		
+						//res.send('f')
+					});					
 				});
 			});
 						
