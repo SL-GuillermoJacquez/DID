@@ -1,0 +1,100 @@
+extends layout
+
+mixin item(itemData, size)
+  if size == "small"
+    +small(itemData)
+  else
+    if itemData.TypeID == 3
+      +specialEvent(itemData)
+    else
+      +large(itemData)
+
+mixin small(itemData)
+  .dp_itemImage.dp_itemSmallImage
+    a(href="")
+      img.FormatImage(src="#{itemData.Image}")
+    .dp_ratingsReviews.excludeFromMobile.FormatRatings
+    .clear
+  .dp_price.DealDescription.FormatDeal.FormatDealMediumSmall
+    .dp_itemInfo
+    h3.dp_title
+      span.ellipsis_text.Title
+    .dp_validdates.FormatDate.FormatSneakPeekDate
+    .clear
+  .clear
+  .centering_ForMobile
+    a.includeInMobile.see_details_button(href="") See More Details
+    a.includeInMobile.fl.add_to_cart_button(href="") Add To Cart
+    .clear
+
+mixin large(itemData)
+  .dp_itemImage.dp_itemLargeImage
+    a(href="")
+     img.FormatImage(src="#{itemData.Image}")
+    .dp_ratingsReviews.excludeFromMobile.FormatRatings
+    .clear
+  .dp_itemInfo
+    .dp_price.DealDescription.FormatDeal
+    h3.dp_title
+      span.ellipsis_text.Title
+    .dp_validdates.FormatDate.FormatSneakPeekDate
+    .clear
+    .clear
+  .clear
+  .centering_ForMobile
+    a.includeInMobile.see_details_button(href="") See More Details
+    a.includeInMobile.fl.add_to_cart_button(href="") Add To Cart
+    .clear
+  .gradientOverlay
+
+mixin specialEvent(itemData)
+  .dp_itemImage.dp_itemLargeImage
+    a(href="")
+     img.FormatImage(src="#{itemData.Image}")
+    .dp_ratingsReviews.excludeFromMobile.FormatRatings
+    .clear
+  .dp_itemInfo
+    .dp_price.DealDescription.FormatDeal
+    h3.dp_title
+      span.ellipsis_text.Title
+    .dp_validdates.FormatDate.FormatSneakPeekDate
+    .clear
+    .clear
+  .clear
+  .centering_ForMobile
+    a.includeInMobile.see_details_button(href="") See More Details
+    a.includeInMobile.fl.add_to_cart_button(href="") Add To Cart
+    .clear
+  .gradientOverlay
+
+block content
+
+  if Name == "DID template 1"
+    .dynamicPageContainer
+      .dynamicPageMaincontent
+        .dynamicPageItems.dynamicPageItems_nineItem
+          .dp_itemLarge.dp_specialEvent.nineItem_1
+            +item(Items[0], "large")
+          .dp_itemSmall.nineItem_2
+            +item(Items[1], "small")
+          .dp_itemSmall.nineItem_3
+            +item(Items[2], "small")
+          .dp_itemSmall.nineItem_4
+            +item(Items[3], "small")
+          .dp_itemSmall.nineItem_5
+            +item(Items[4], "small")
+          .dp_itemSmall.nineItem_6
+            +item(Items[5], "small")
+          .dp_itemSmall.nineItem_7
+            +item(Items[6], "small")
+          .dp_itemSmall.nineItem_8
+            +item(Items[7], "small")
+          .dp_itemSmall.nineItem_9
+            +item(Items[8], "small")
+          .clear
+        .clear
+        .ad_banner.ad_banner1.excludeFromMobile
+      .clear
+      .sl_dynamic_footer.PrimaryFooter.action-footer-text
+  else
+    p Use else Template: #{result.Name}

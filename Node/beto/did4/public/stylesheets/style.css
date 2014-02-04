@@ -1,0 +1,333 @@
+/*  HOME DEPOT STYLES  */
+.sl_dynamicpages {
+	position: relative;
+	width: 100%;
+}
+
+#wrapper img {
+	width: 100%;
+}
+
+.image-spinner{
+	background-image: url('images/spinner.gif');
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	text-align:center;
+	padding:8px;
+	margin-left: -50px;
+	margin-top: -50px;
+	z-index:2;
+	overflow: auto;
+}
+
+.homedepot_components_dynamicpages {
+	height: 755px;
+	margin: -36px auto 0;
+	position:relative;	/* On older OS versions "position" and "z-index" must be defined, */
+	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
+}
+
+
+#BrowseDPContent { /* may not be needed */
+	margin: 0 auto;
+    min-height: 200px;
+    position: relative;
+	width: 889px;
+    z-index: 1;
+}
+	
+
+#BrowseDPLayout .gutter { /* may not be needed */
+	z-index: 10;
+}
+
+#scroller {
+	height:100%;
+	float:left;
+	padding:0;
+}
+
+#scroller ul {
+	list-style:none;
+	display:block;
+	float:left;
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+	text-align:left;
+}
+
+#scroller li {
+	display:block;
+	float:left;
+}
+
+
+/*  DYNAMIC PAGE STYLES  */
+.dynamicPageContainer {
+	width: 921px;
+	padding: 0;
+	background: #fff;
+    font-size: 12px;
+	font-family: Arial;
+}
+.dynamicPageItems {
+	background: url(images/bottom-background.png) 0 0 no-repeat;
+}
+.dynamicPageContainer ul {
+	background-color: #ffffff;
+}
+
+.dp_itemLarge {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 387px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+	background: #fff;
+}
+.gradientOverlay {
+	width: 100%;
+	height: 387px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #fff;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  #ffffff 34%, #bbbbbb 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(34%,#ffffff), color-stop(100%,#bbbbbb)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  #ffffff 34%,#bbbbbb 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  #ffffff 34%,#bbbbbb 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  #ffffff 34%,#bbbbbb 100%); /* IE10+ */
+	background: linear-gradient(135deg,  #ffffff 34%,#bbbbbb 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bbbbbb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	-webkit-box-shadow:inset 3px 3px 15px 0 rgba(0,0,0,.25);
+	box-shadow:inset 3px 3px 15px 0 rgba(0,0,0,.25);
+	opacity: .2;
+}
+.dp_itemMedium {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	padding: 10px;
+	width: 29.62%;
+	height: 28.1%;
+	margin: .7%;
+	background: #fff;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.dp_itemSmall {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	width: 22.28%;
+	margin: 20px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+	border: 1px solid #eeeeee;
+}
+
+.dp_itemSmall + .dp_itemSmall {
+	margin-left: 0;
+}
+.dp_itemSmall:nth-child(4n+6) + .dp_itemSmall:nth-child(4n+7) {
+	margin-left: 20px;
+}
+
+.dp_specialEvent {
+	position: relative;
+	float: left;
+	width: 29.62%;
+	height: 28.1%;
+	margin: .7%;
+	padding: 10px;
+	background: url('images/specialevent.jpg') 0 0 no-repeat;
+	-webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+.oneItem_1.dp_specialEvent {
+	background: none;
+	width: 98.6%;
+	height: 98.8%;
+	padding: 0;
+}
+.dynamicPageItems_threeItem .dp_specialEvent {
+	background: none;
+	width: 98.6%;
+	height: 31.5%;
+	padding: 0;
+}
+
+.dp_itemImage {
+	height: 100%;
+	position: relative;
+	background: #fff;
+}
+.dp_itemMediumImage {
+	float: right;
+	width: 60%;
+}
+.dp_itemLargeImage {
+	float: left;
+	width: 300px;
+	margin: 35px 15px 35px 35px;
+}
+.dp_itemSmallImage a {
+	display: block;
+	padding: 10px 0;
+	width: 158px;
+	margin: 0 auto;
+}
+.dp_itemImage img {
+	width: 100%;
+	border: none;
+}
+
+/*  DATA FIELDS  */
+.dp_itemInfo {
+	padding: 10px 10px 8px;
+	background: rgba(255, 255, 255, .3);
+}
+
+.dp_itemLarge .dp_itemInfo {
+	position: absolute;
+	bottom: 40px;
+	left: 350px;
+}
+.dp_price {
+	color: #000;
+	margin-bottom: 3px;
+	display: inline;
+}
+.dp_itemLarge .dp_price {
+	font-size: 63px;
+	color: #f96302;
+	line-height: .7;
+	background: rgba(255, 255, 255, .7);
+}
+.dp_itemMedium .dp_price {
+	font-size: 30px;
+	line-height: .9;
+	background: rgba(155, 155, 155, .7);
+}
+.dp_itemSmall .dp_price {
+	font-size: 30px;
+	line-height: .9;
+	background: rgba(155, 155, 155, .7);
+	width: 45%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+	padding: 6px 6px 3px;
+	border: 1px solid #ccc;
+	text-align: right;
+	position: absolute;
+	top: 115px;
+	color: #fff;
+}
+.dynamicPageContainer sup {
+	font-size: 0.6em;
+	vertical-align:top;
+}
+.dp_pricequalifier {
+	color: #000;
+	text-transform: uppercase;
+	display: inline;
+}
+.dp_itemMedium .dp_pricequalifier {
+	font-size: 11px;
+}
+.dp_addldealinfo {
+	color: #F96302;
+	font-weight: bold;
+	font-size: 10px;
+	margin-bottom: 3px;
+	line-height: .9;
+	text-transform: uppercase;
+}
+.dp_addldealinfo sup {
+	font-size: 0.7em;
+	line-height: 1;
+}
+
+.dp_title {
+	font-weight: bold;
+	line-height: 1;
+	color: #000;
+	text-transform: uppercase;
+	margin: 0;
+}
+.dp_itemMedium .dp_title {
+	font-size: 11px;
+}
+.dp_itemSmall .dp_title {
+	font-size: 12px;
+	height: 39px;
+	overflow: hidden;
+}
+.dp_validdates {
+	font-size: 10px;
+	color: #666;
+    margin: 3px 0;
+	line-height: .9;
+}
+.dp_itemMedium .dp_validdates {
+}
+.dp_ratingsReviews {
+	background: url(images/ratings.png) top center no-repeat;
+	width: 100%;
+	height: 19px;
+	margin-bottom: 8px;
+}
+/*  END DATA FIELDS  */
+
+.clear {
+	clear: both;
+	height: 0;
+}
+.dispNone {
+	display: none;
+}
+/*  END DYNAMIC PAGE STYLES  */
+
+
+/*  HEADER  */
+.ad_header {
+	height: 68px;
+	margin: 7px 5px 3px 7px;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	-webkit-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5);
+}
+.ad_header1 {
+	background-image: url('images/banner.jpg'); /* may not be needed */
+	background-size: 100%;
+}
+
+.ad_header2 {
+	background-image: url('images/banner_social.jpg'); /* may not be needed */
+}
+/*  END HEADER  */
+
+
+/*  FOOTER  */
+.sl_dynamic_footer {
+	padding: 5px 0 2px 25px;
+	color: #fff;
+	font-weight: bold;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 11px;
+}
+/*  END FOOTER  */
+/*  END HOME DEPOT STYLES  */
