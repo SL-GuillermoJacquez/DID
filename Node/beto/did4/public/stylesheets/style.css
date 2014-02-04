@@ -245,13 +245,13 @@
 	font-size: 14px;
 }
 .dp_ratingsReviews {
-	background: url(images/ratings.png) top right no-repeat;
+	background: url(/images/ratings.png) top right no-repeat;
 	width: 97%;
 	height: 19px;
 	margin-bottom: 8px;
 }
 .dp_itemMedium .dp_ratingsReviews {
-	background: url(images/ratings.png) top center no-repeat;
+	background: url(/images/ratings.png) top center no-repeat;
 }
 .dp_description {
 	font-size: 16px;
@@ -275,12 +275,12 @@
 	background-repeat: no-repeat;
 }
 .ad_header1 {
-	background-image: url('images/banner.jpg'); /* may not be needed */
+	background-image: url('/images/banner.jpg'); /* may not be needed */
 	background-size: 100%;
 }
 
 .ad_header2 {
-	background-image: url('images/banner_social.jpg'); /* may not be needed */
+	background-image: url('/images/banner_social.jpg'); /* may not be needed */
 }
 /*  END HEADER  */
 
