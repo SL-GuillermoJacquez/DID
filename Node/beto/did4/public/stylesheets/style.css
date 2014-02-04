@@ -186,6 +186,7 @@
     box-sizing: border-box;
 	padding: 6px 6px 3px 20px;
 	text-align: right;
+	/*-webkit-transform: rotate(-5deg);*/
 }
 .dp_itemLarge .dp_price {
 	font-size: 100px;
