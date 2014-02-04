@@ -30,8 +30,9 @@ mixin medium(itemData)
       img.FormatImage(src="http://akimages.shoplocal.com/dyn_li/258.0.88.0/#{itemData.Image}")
     .dp_ratingsReviews.FormatRatings
     .clear
+  .dp_price.DealDescription.FormatDeal.FormatDealMediumSmall #{itemData.DealDescription}
   .dp_itemInfo
-    .dp_price.DealDescription.FormatDeal.FormatDealMediumSmall #{itemData.DealDescription}
+    .dp_brandname from #{itemData.BrandName}
     h3.dp_title
       span.ellipsis_text.Title #{itemData.Title}
     .clear
