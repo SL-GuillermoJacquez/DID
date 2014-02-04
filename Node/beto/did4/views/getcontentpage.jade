@@ -3,6 +3,8 @@ extends layout
 mixin item(itemData, size)
   if size == "small"
     +small(itemData)
+  else if size == "medium"
+    +medium(itemData)
   else
     if itemData.TypeID == 3
       +specialEvent(itemData)
@@ -17,6 +19,19 @@ mixin small(itemData)
     .clear
   .dp_price.DealDescription.FormatDeal.FormatDealMediumSmall #{itemData.DealDescription}
   .dp_itemInfo
+    h3.dp_title
+      span.ellipsis_text.Title #{itemData.Title}
+    .clear
+  .clear
+
+mixin medium(itemData)
+  .dp_itemImage.dp_itemMediumImage
+    a(href="")
+      img.FormatImage(src="http://akimages.shoplocal.com/dyn_li/158.0.88.0/#{itemData.Image}")
+    .dp_ratingsReviews.FormatRatings
+    .clear
+  .dp_itemInfo
+    .dp_price.DealDescription.FormatDeal.FormatDealMediumSmall #{itemData.DealDescription}
     h3.dp_title
       span.ellipsis_text.Title #{itemData.Title}
     .clear
@@ -83,8 +98,33 @@ block content
               +item(Items[8], "small")
           .clear
         .clear
-        .ad_header.ad_header1.excludeFromMobile
+        .ad_header.ad_header1
       .clear
       .sl_dynamic_footer.PrimaryFooter.action-footer-text
   else
-    p Use else Template: #{result.Name}
+    .dynamicPageContainer
+      #dynamicPageMaincontent.dynamicPageMaincontent
+        .dynamicPageItems.dynamicPageItems_sixItem
+          if (typeof Items[0] !== "undefined")
+            .dp_itemMedium.nineItem_1.listing(data-listingid='#{Items[0].ID}')
+              +item(Items[0], "medium")
+          if (typeof Items[1] !== "undefined")
+            .dp_itemMedium.nineItem_2.listing(data-listingid='#{Items[1].ID}')
+              +item(Items[1], "medium")
+          if (typeof Items[2] !== "undefined")
+            .dp_itemMedium.nineItem_3.listing(data-listingid='#{Items[2].ID}')
+              +item(Items[2], "medium")
+          if (typeof Items[3] !== "undefined")
+            .dp_itemMedium.nineItem_4.listing(data-listingid='#{Items[3].ID}')
+              +item(Items[3], "medium")
+          if (typeof Items[4] !== "undefined")
+            .dp_itemMedium.nineItem_5.listing(data-listingid='#{Items[4].ID}')
+              +item(Items[4], "medium")
+          if (typeof Items[5] !== "undefined")
+            .dp_itemMedium.nineItem_6.listing(data-listingid='#{Items[5].ID}')
+              +item(Items[5], "medium")
+          .clear
+        .clear
+        .ad_header.ad_header2
+      .clear
+      .sl_dynamic_footer.PrimaryFooter.action-footer-text
