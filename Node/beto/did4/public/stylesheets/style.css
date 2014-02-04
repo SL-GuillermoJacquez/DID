@@ -1,70 +1,3 @@
-/*  HOME DEPOT STYLES  */
-.sl_dynamicpages {
-	position: relative;
-	width: 100%;
-}
-
-#wrapper img {
-	width: 100%;
-}
-
-.image-spinner{
-	background-image: url('images/spinner.gif');
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	text-align:center;
-	padding:8px;
-	margin-left: -50px;
-	margin-top: -50px;
-	z-index:2;
-	overflow: auto;
-}
-
-.homedepot_components_dynamicpages {
-	height: 755px;
-	margin: -36px auto 0;
-	position:relative;	/* On older OS versions "position" and "z-index" must be defined, */
-	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
-}
-
-
-#BrowseDPContent { /* may not be needed */
-	margin: 0 auto;
-    min-height: 200px;
-    position: relative;
-	width: 889px;
-    z-index: 1;
-}
-	
-
-#BrowseDPLayout .gutter { /* may not be needed */
-	z-index: 10;
-}
-
-#scroller {
-	height:100%;
-	float:left;
-	padding:0;
-}
-
-#scroller ul {
-	list-style:none;
-	display:block;
-	float:left;
-	width:100%;
-	height:100%;
-	padding:0;
-	margin:0;
-	text-align:left;
-}
-
-#scroller li {
-	display:block;
-	float:left;
-}
-
-
 /*  DYNAMIC PAGE STYLES  */
 .dynamicPageContainer {
 	width: 921px;
@@ -110,17 +43,14 @@
 	box-shadow:inset 1px -7px 15px 0 rgba(0,0,0,.25);
 	opacity: .2;
 }
-
-.dp_specialEvent .gradientOverlay {
-	display: none;
-}
 .dp_itemMedium {
 	float: left;
 	overflow: hidden;
 	position: relative;
-	width: 29.62%;
-	margin: 40px 20px 0;
-	background: #fff;
+	width: 31.16%;
+	margin: 30px 15px 0;
+	background: #fff url("http://akimages.shoplocal.com/listingimages/staticimages/homedepot/20140102_OBV_interior.jpg") 0 0 no-repeat;
+	background-size: 100% 100%;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -128,12 +58,16 @@
 .dp_itemMedium + .dp_itemMedium {
 	margin-left: 0;
 }
-.dp_itemMedium:nth-child(3n+4) + .dp_itemMedium:nth-child(3n+5) {
-	margin-left: 20px;
+.dp_itemMedium:nth-child(3n+3) + .dp_itemMedium:nth-child(3n+4) {
+	margin-left: 15px;
 }
 .dp_itemMedium:nth-child(n+4) {
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 	margin-top: 20px;
+}
+.dp_itemMedium:nth-child(2n+2) {
+	height: 366px;
+	margin-top: 50px;
 }
 
 .dp_itemSmall {
@@ -168,8 +102,24 @@
 	margin: 35px 15px 35px 35px;
 }
 .dp_itemMediumImage {
+	background: none;
+	height: auto;
+}
+.dp_itemMedium:nth-child(2n+2) .dp_itemMediumImage {
+	position: absolute;
+	top: 128px;
+}
+.dp_itemMedium:nth-child(2) .dp_itemMediumImage {
+	left: 15%;
+}
+.dp_itemMedium:nth-child(6) .dp_itemMediumImage {
+	right: 8px;
+}
+.dp_itemMediumImage a {
 	margin: 0 auto;
-	width: 60%;
+	width: 90%;
+	display: block;
+	padding: 10px 0;
 }
 .dp_itemSmallImage a {
 	display: block;
@@ -186,16 +136,28 @@
 .dp_itemInfo {
 	padding: 10px 12px 8px 28px;
 	background: #fff;
-	text-align: right;
 }
-
 .dp_itemLarge .dp_itemInfo {
 	position: absolute;
 	bottom: 40px;
 	left: 350px;
 	padding-right: 35px;
-	text-align: left;
 }
+.dp_itemSmall .dp_itemInfo {
+	text-align: right;
+}
+.dp_itemMedium:nth-child(2n+2) .dp_itemInfo {
+	position: absolute;
+	top: 0;
+	height: 110px;
+}
+.dp_itemMedium .dp_itemInfo {
+	padding-top: 20px;
+	padding-left: 12px;
+	background: none;
+}
+
+
 .dp_price {
 	color: #000;
 	font-weight: bold;
@@ -210,8 +172,7 @@
 .dp_itemMedium .dp_price {
 	font-size: 30px;
 	line-height: .9;
-	background: rgba(234, 130, 34, .75);
-	padding: 6px 6px 3px 20px;
+	color: #f96302;
 }
 .dp_itemSmall .dp_price {
 	font-size: 30px;
@@ -264,7 +225,10 @@
 	margin-top: 10px;
 }
 .dp_itemMedium .dp_title {
-	font-size: 11px;
+	font-size: 17px;
+	height: 50px;
+	line-height: 1.1;
+	margin: 3px 0 10px;
 }
 .dp_itemSmall .dp_title {
 	font-size: 12px;
@@ -281,22 +245,24 @@
 	font-size: 14px;
 }
 .dp_ratingsReviews {
-	background: url(/images/ratings.png) top right no-repeat;
+	background: url(images/ratings.png) top right no-repeat;
 	width: 97%;
 	height: 19px;
 	margin-bottom: 8px;
 }
+.dp_itemMedium .dp_ratingsReviews {
+	background: url(images/ratings.png) top center no-repeat;
+}
 .dp_description {
 	font-size: 16px;
+	height: 76px;
+	margin: 16px 0;
 }
 /*  END DATA FIELDS  */
 
 .clear {
 	clear: both;
 	height: 0;
-}
-.dispNone {
-	display: none;
 }
 /*  END DYNAMIC PAGE STYLES  */
 
@@ -309,12 +275,12 @@
 	background-repeat: no-repeat;
 }
 .ad_header1 {
-	background-image: url('/images/banner.jpg'); /* may not be needed */
+	background-image: url('images/banner.jpg'); /* may not be needed */
 	background-size: 100%;
 }
 
 .ad_header2 {
-	background-image: url('/images/banner_social.jpg'); /* may not be needed */
+	background-image: url('images/banner_social.jpg'); /* may not be needed */
 }
 /*  END HEADER  */
 
@@ -328,5 +294,8 @@
 	text-overflow: ellipsis;
 	font-size: 11px;
 }
+
+.dp_specialEvent .gradientOverlay {
+	display: none;
+}
 /*  END FOOTER  */
-/*  END HOME DEPOT STYLES  */
