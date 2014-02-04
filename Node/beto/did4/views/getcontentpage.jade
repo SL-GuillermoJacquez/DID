@@ -52,34 +52,34 @@ block content
         .dynamicPageItems.dynamicPageItems_nineItem
           if (typeof Items[0] !== "undefined")
             if Items[0].TypeID == 3
-              .dp_itemLarge.nineItem_1
+              .dp_itemLarge.nineItem_1(data-listingid='#{Items[0].ID}')
                 +item(Items[0], "large")
             else
-              .dp_itemLarge.nineItem_1.listing
+              .dp_itemLarge.nineItem_1.listing(data-listingid='#{Items[0].ID}')
                 +item(Items[0], "large")
           if (typeof Items[1] !== "undefined")
-            .dp_itemSmall.nineItem_2.listing
+            .dp_itemSmall.nineItem_2.listing(data-listingid='#{Items[1].ID}')
               +item(Items[1], "small")
           if (typeof Items[2] !== "undefined")
-            .dp_itemSmall.nineItem_3.listing
+            .dp_itemSmall.nineItem_3.listing(data-listingid='#{Items[2].ID}')
               +item(Items[2], "small")
           if (typeof Items[3] !== "undefined")
-            .dp_itemSmall.nineItem_4.listing
+            .dp_itemSmall.nineItem_4.listing(data-listingid='#{Items[3].ID}')
               +item(Items[3], "small")
           if (typeof Items[4] !== "undefined")
-            .dp_itemSmall.nineItem_5.listing
+            .dp_itemSmall.nineItem_5.listing(data-listingid='#{Items[4].ID}')
               +item(Items[4], "small")
           if (typeof Items[5] !== "undefined")
-            .dp_itemSmall.nineItem_6.listing
+            .dp_itemSmall.nineItem_6.listing(data-listingid='#{Items[5].ID}')
               +item(Items[5], "small")
           if (typeof Items[6] !== "undefined")
-            .dp_itemSmall.nineItem_7.listing
+            .dp_itemSmall.nineItem_7.listing(data-listingid='#{Items[6].ID}')
               +item(Items[6], "small")
           if (typeof Items[7] !== "undefined")
-            .dp_itemSmall.nineItem_8.listing
+            .dp_itemSmall.nineItem_8.listing(data-listingid='#{Items[7].ID}')
               +item(Items[7], "small")
           if (typeof Items[8] !== "undefined")
-            .dp_itemSmall.nineItem_9.listing
+            .dp_itemSmall.nineItem_9.listing(data-listingid='#{Items[8].ID}')
               +item(Items[8], "small")
           .clear
         .clear
