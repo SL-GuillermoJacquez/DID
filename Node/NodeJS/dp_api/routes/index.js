@@ -93,7 +93,7 @@ exports.image = function(req, res){
 					console.log('body tag present');									
 					
 					page.render('./scratch/scratch.png', function (result) {						
-						res.redirect('http://localhost:3000/screenshots/scratch.png');						
+						res.redirect('http://' + req.get('host') + '/screenshots/scratch.png');						
 						proxy.end(function () {
 						  console.log('done');
 						});
