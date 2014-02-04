@@ -40,11 +40,11 @@ body {
 	cursor: pointer;
 }
 .prevBtn {
-    background: url("images/HomeDepot_sprite_PADDLES.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    background: url("/images/HomeDepot_sprite_PADDLES.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	left: -20px;
 }
 .nextBtn {
-	background: url("images/HomeDepot_sprite_PADDLES.png") no-repeat scroll -131px 0 rgba(0, 0, 0, 0);
+	background: url("/images/HomeDepot_sprite_PADDLES.png") no-repeat scroll -131px 0 rgba(0, 0, 0, 0);
 	right: -20px;
 }
 
