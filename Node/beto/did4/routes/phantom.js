@@ -5,28 +5,33 @@ exports.data = function(req, res){
 	phantomProxy.create({}, function (proxy) {
 		var page = proxy.page;
 		
-		proxy.page.set('viewportSize', { width:900, height:900 }, function (result) {
+		proxy.page.set('viewportSize', { width:800, height:600 }, function (result) {
 			console.log(result.toString().cyan);
 			//worldCallback.call(self);		  
-								
 			
-			page.open('http://localhost:3000/test.html', function () {
+			var pagenumber = req.query.pagenumber;
+			var url = "http://" + req.get('host') + "/getcontentpage?campaignid=33b830157262d019&siteid=1469&contentgroupid=500317&storeid=2540751&returnreviewflag=Y&languageid=1&pagenumber=" + pagenumber
+						
+			page.open(url, function () {
 				page.waitForSelector('body', function () {
 					console.log('body tag present');									
 										
 					var result = page.evaluate(function() {
 								
-						var divContainer = document.getElementById('wrapper0');
+						var divContainer = document.getElementById('dynamicPageMaincontent');
 						
 						if (divContainer)
 						{			
+						
+							return "bbbbbbb";
+						
 							var result = new Array;
 							var top, left, parent;
 							var coords = "";
 							
 							var elems = document.getElementsByTagName('div');
 							for (var i in elems) {
-								if((' ' + elems[i].className + ' ').indexOf(' ' + "listing" + ' ') > -1) {
+								if((' ' + elems[i].className + ' ').indexOf(' ' + "	dp_itemSmall" + ' ') > -1) {
 								
 									var element = elems[i];
 								
@@ -52,6 +57,7 @@ exports.data = function(req, res){
 							console.log('Element not found');
 						}
 					}, function(result){ 
+						console.log("RESULTS:::" + result);
 						result = JSON.parse(result);						
 						
 						if (result) {
@@ -79,14 +85,8 @@ exports.image = function(req, res){
 
 	phantomProxy.create({}, function (proxy) {
 		var page = proxy.page;
-		
-		
-		//proxy.page.set('clipRect', { width:900, height:900 }, function (result) {
-		//
-		//});
-		
-		
-		proxy.page.set('viewportSize', { width:900, height:900 }, function (result) {
+
+		proxy.page.set('viewportSize', { width:800, height:600 }, function (result) {
 			console.log(result.toString().cyan);
 			//worldCallback.call(self);		  
 			
