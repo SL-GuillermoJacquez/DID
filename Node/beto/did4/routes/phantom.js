@@ -11,7 +11,7 @@ exports.data = function(req, res){
 			
 			for(var i=0; i<hotspots_strings.length; i++){
 				var data = hotspots_strings[i].split(';');
-				hotspots.push({listingid: data[4], coords: data[0] + "," + data[1] + "," +data[2] + "," +data[3], bol: 'http://www.homedepot.com/p/Glacier-Bay-Stafford-36-in-Vanity-in-White-with-Stone-Effects-Vanity-Top-in-Rustic-Gold-and-Mirror-SA36P3COM-WH/204681799?N=5yc1vZc8fh' });
+				hotspots.push({listingid: data[4], coords: data[0] + "," + data[1] + "," +data[2] + "," +data[3] });
 			}
 			
 			return hotspots;
