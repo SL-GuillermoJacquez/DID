@@ -1,14 +1,24 @@
 /*  DYNAMIC PAGE STYLES  */
 .dynamicPageContainer {
 	width: 921px;
+	height: 1111px;
 	padding: 0;
 	background: #fff;
     font-size: 12px;
 	font-family: Arial;
 }
 .dynamicPageItems {
-	background: url("http://akimages.shoplocal.com/listingimages/staticimages/homedepot/sbotd_background.jpg") bottom left no-repeat;
+	height: 1043px;
+	background-position: bottom left;
+	background-repeat: no-repeat;
+}
+.dynamicPageItems.dynamicPageItems_nineItem {
+	background-image: url("http://akimages.shoplocal.com/listingimages/staticimages/homedepot/sbotd_background.jpg");
 	background-size: 110%;
+}
+.dynamicPageItems.dynamicPageItems_sixItem {
+	background-image: url("http://akimages.shoplocal.com/listingimages/staticimages/homedepot/plywood_921x718.png");
+	background-size: 145%;
 }
 .dynamicPageContainer ul {
 	background-color: #ffffff;
@@ -48,7 +58,7 @@
 	overflow: hidden;
 	position: relative;
 	width: 31.16%;
-	margin: 30px 15px 0;
+	margin: 50px 15px 0;
 	background: #fff url("http://akimages.shoplocal.com/listingimages/staticimages/homedepot/20140102_OBV_interior.jpg") 0 0 no-repeat;
 	background-size: 100% 100%;
     -moz-box-sizing: border-box;
@@ -66,8 +76,8 @@
 	margin-top: 20px;
 }
 .dp_itemMedium:nth-child(2n+2) {
-	height: 366px;
-	margin-top: 50px;
+	height: 386px;
+	margin-top: 75px;
 }
 
 .dp_itemSmall {
@@ -119,7 +129,7 @@
 	margin: 0 auto;
 	width: 90%;
 	display: block;
-	padding: 10px 0;
+	padding: 30px 0 10px;
 }
 .dp_itemSmallImage a {
 	display: block;
@@ -152,7 +162,7 @@
 	height: 110px;
 }
 .dp_itemMedium .dp_itemInfo {
-	padding-top: 20px;
+	padding-top: 30px;
 	padding-left: 12px;
 	background: none;
 }
@@ -219,6 +229,7 @@
 	color: #000;
 	text-transform: uppercase;
 	margin: 0;
+	overflow: hidden;
 }
 .dp_itemLarge .dp_title {
 	font-size: 24px;
@@ -233,7 +244,6 @@
 .dp_itemSmall .dp_title {
 	font-size: 12px;
 	height: 37px;
-	overflow: hidden;
 }
 .dp_validdates {
 	font-size: 10px;
@@ -245,13 +255,10 @@
 	font-size: 14px;
 }
 .dp_ratingsReviews {
-	background: url(/images/ratings.png) top right no-repeat;
-	width: 97%;
-	height: 19px;
-	margin-bottom: 8px;
+	
 }
 .dp_itemMedium .dp_ratingsReviews {
-	background: url(/images/ratings.png) top center no-repeat;
+	
 }
 .dp_description {
 	font-size: 16px;
