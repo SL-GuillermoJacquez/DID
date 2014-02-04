@@ -130,6 +130,13 @@
 	display: block;
 	padding: 30px 0 10px;
 }
+	
+.dp_itemMedium:nth-child(2n+2) .dp_itemMediumImage a {
+	width: auto;
+	margin: 0 15px;
+}
+	
+
 .dp_itemSmallImage a {
 	display: block;
 	padding: 10px 0;
@@ -140,7 +147,9 @@
 	width: 100%;
 	border: none;
 }
-
+.dp_itemMedium:nth-child(2n+2) .dp_itemMediumImage img {
+	width: 183px;
+}
 /*  DATA FIELDS  */
 .dp_itemInfo {
 	padding: 10px 12px 8px 28px;
