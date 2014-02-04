@@ -27,6 +27,17 @@ exports.getcontentpage = function(req, res){
 
 };
 
+exports.getpages = function(req, res){
+
+	var data = [];
+	data.push({pagenumber:1, image: "http://" + req.get('host') + "/image?pagenumber=1"});
+	data.push({pagenumber:2, image: "http://" + req.get('host') + "/image?pagenumber=2"});
+	data.push({pagenumber:3, image: "http://" + req.get('host') + "/image?pagenumber=3"});
+
+	res.send( "pagesCallback(" + JSON.stringify(data) + ")" );
+	
+};
+
 function requests(url, callback) {
   request(url, function(err, resp, body) {
   	body = JSON.parse(body);

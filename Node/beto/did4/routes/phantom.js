@@ -72,7 +72,7 @@ exports.data = function(req, res){
 						var records = getRecords(result.coords);
 						
 						if (result) {
-							res.render('phantom', { data: JSON.stringify(records) });
+							res.send( "hotspotsCallback(" + JSON.stringify(records) + ")" );
 						}		
 						else{
 							res.render('phantom', { data: {height:-1} });
@@ -90,35 +90,48 @@ exports.data = function(req, res){
 
 exports.image = function(req, res){
 
-	//console.log('wft?')
+	var pagenumber = req.query.pagenumber;
+	var fs = require('fs');
 
-	var phantomProxy = require('phantom-proxy');
+	var path = './scratch/scratch_' + pagenumber + '.jpg';
+	if (fs.existsSync(path)) {
+		res.redirect('http://' + req.get('host') + '/screenshots/scratch_' + pagenumber + '.jpg');	
+		console.log("found");
+		return;
+	}
+	else{
+		console.log("not found");
+	}
 
-	phantomProxy.create({}, function (proxy) {
+	
+	require('phantom-proxy').create({debug:false}, function (proxy) {
 		var page = proxy.page;
 
-		proxy.page.set('viewportSize', { width:800, height:600 }, function (result) {
-			console.log(result.toString().cyan);
+		//page.set('viewportSize', { width:800, height:600 }, function (result) {
+			//console.log(result.toString().cyan);
 			//worldCallback.call(self);		  
 			
-			var pagenumber = req.query.pagenumber;
+			
 			var url = "http://" + req.get('host') + "/getcontentpage?campaignid=33b830157262d019&siteid=1469&contentgroupid=500317&storeid=2540751&returnreviewflag=Y&languageid=1&pagenumber=" + pagenumber
 			
 			page.open(url, function () {
+				var pn = pagenumber;
 				page.waitForSelector('body', function () {
-					console.log('body tag presented!!!!!!!');									
+					//console.log('body tag presented!!!!!!!');									
 					
-					page.render('./scratch/scratch_' + pagenumber + '.jpg', function (result) {							
-						//proxy.end(function () {
-						//  console.log('done');
-						//});
+					page.render('./scratch/scratch_' + pn + '.jpg', function () {							
 						
-						res.redirect('http://' + req.get('host') + '/screenshots/scratch_' + pagenumber + '.jpg');		
+						//phantomProxy.end(function(){});
+						
+						res.redirect('http://' + req.get('host') + '/screenshots/scratch_' + pn + '.jpg');		
+						return;
 						//res.send('f')
 					});					
 				});
 			});
 						
-		});		
+		//});		
 	});
+
+	
 };

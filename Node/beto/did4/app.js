@@ -36,6 +36,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/getcontentpage', routes.getcontentpage);
+app.get('/getpages', routes.getpages);
 
 app.get('/data', phantom.data);
 app.get('/image', phantom.image);
