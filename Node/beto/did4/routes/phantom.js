@@ -5,6 +5,19 @@ exports.data = function(req, res){
 	phantomProxy.create({}, function (proxy) {
 		var page = proxy.page;
 		
+		function getRecords(records){
+			var hotspots_strings = records.split(',');
+			var hotspots = [];
+			
+			for(var i=0; i<hotspots_strings.length; i++){
+				var data = hotspots_strings[i].split(';');
+				hotspots.push({listingid: data[4], coords: data[0] + "," + data[1] + "," +data[2] + "," +data[3] });
+			}
+			
+			return hotspots;
+		}
+		
+		
 		proxy.page.set('viewportSize', { width:800, height:600 }, function (result) {
 			console.log(result.toString().cyan);
 			//worldCallback.call(self);		  
@@ -22,16 +35,13 @@ exports.data = function(req, res){
 						
 						if (divContainer)
 						{			
-						
-							return "bbbbbbb";
-						
 							var result = new Array;
 							var top, left, parent;
 							var coords = "";
 							
 							var elems = document.getElementsByTagName('div');
 							for (var i in elems) {
-								if((' ' + elems[i].className + ' ').indexOf(' ' + "	dp_itemSmall" + ' ') > -1) {
+								if((' ' + elems[i].className + ' ').indexOf(' ' + "listing" + ' ') > -1) {
 								
 									var element = elems[i];
 								
@@ -46,12 +56,11 @@ exports.data = function(req, res){
 										parent = parent.offsetParent;
 									}
 														
-									coords += top + ";" + left + ";" + element.offsetWidth + ";" + element.offsetHeight + ",";
+									coords += left + ";" + top + ";" + (left + element.offsetWidth) + ";" + (top + element.offsetHeight) + ";" + element.getAttribute('data-listingid') + ",";
 								}
 							}
 							
-							return '{"height": "' + coords + '"}';
-							//return '{"top": "' + top + '", "left": "' + left +  '", "height": "' + divContainer.offsetHeight + '"}'
+							return '{"coords": "' + coords.substring(0, coords.length-1) + '"}';
 													
 						} else {
 							console.log('Element not found');
@@ -60,11 +69,13 @@ exports.data = function(req, res){
 						console.log("RESULTS:::" + result);
 						result = JSON.parse(result);						
 						
+						var records = getRecords(result.coords);
+						
 						if (result) {
-							res.render('phantom', { coords: result });
+							res.render('phantom', { data: JSON.stringify(records) });
 						}		
 						else{
-							res.render('phantom', { coords: {height:-1} });
+							res.render('phantom', { data: {height:-1} });
 						}						
 						
 						
