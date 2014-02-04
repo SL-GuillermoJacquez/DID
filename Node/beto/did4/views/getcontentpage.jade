@@ -48,34 +48,38 @@ block content
 
   if Name == "DID template 1"
     .dynamicPageContainer
-      .dynamicPageMaincontent
+      #dynamicPageMaincontent.dynamicPageMaincontent
         .dynamicPageItems.dynamicPageItems_nineItem
-          .dp_itemLarge.nineItem_1
-            if (typeof Items[0] !== "undefined")
-              +item(Items[0], "large")
-          .dp_itemSmall.nineItem_2
-            if (typeof Items[1] !== "undefined")
+          if (typeof Items[0] !== "undefined")
+            if Items[0].TypeID == 3
+              .dp_itemLarge.nineItem_1
+                +item(Items[0], "large")
+            else
+              .dp_itemLarge.nineItem_1.listing
+                +item(Items[0], "large")
+          if (typeof Items[1] !== "undefined")
+            .dp_itemSmall.nineItem_2.listing
               +item(Items[1], "small")
-          .dp_itemSmall.nineItem_3
-            if (typeof Items[2] !== "undefined")
+          if (typeof Items[2] !== "undefined")
+            .dp_itemSmall.nineItem_3.listing
               +item(Items[2], "small")
-          .dp_itemSmall.nineItem_4
-            if (typeof Items[3] !== "undefined")
+          if (typeof Items[3] !== "undefined")
+            .dp_itemSmall.nineItem_4.listing
               +item(Items[3], "small")
-          .dp_itemSmall.nineItem_5
-            if (typeof Items[4] !== "undefined")
+          if (typeof Items[4] !== "undefined")
+            .dp_itemSmall.nineItem_5.listing
               +item(Items[4], "small")
-          .dp_itemSmall.nineItem_6
-            if (typeof Items[5] !== "undefined")
+          if (typeof Items[5] !== "undefined")
+            .dp_itemSmall.nineItem_6.listing
               +item(Items[5], "small")
-          .dp_itemSmall.nineItem_7
-            if (typeof Items[6] !== "undefined")
+          if (typeof Items[6] !== "undefined")
+            .dp_itemSmall.nineItem_7.listing
               +item(Items[6], "small")
-          .dp_itemSmall.nineItem_8
-            if (typeof Items[7] !== "undefined")
+          if (typeof Items[7] !== "undefined")
+            .dp_itemSmall.nineItem_8.listing
               +item(Items[7], "small")
-          .dp_itemSmall.nineItem_9
-            if (typeof Items[8] !== "undefined")
+          if (typeof Items[8] !== "undefined")
+            .dp_itemSmall.nineItem_9.listing
               +item(Items[8], "small")
           .clear
         .clear
