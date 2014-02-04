@@ -1,20 +1,19 @@
 /*  DYNAMIC PAGE STYLES  */
 .dynamicPageContainer {
 	width: 921px;
-	height: 1111px;
+	height: 1081px;
 	padding: 0;
 	background: #fff;
     font-size: 12px;
 	font-family: Arial;
 }
 .dynamicPageItems {
-	height: 1043px;
+	height: 1013px;
 	background-position: bottom left;
 	background-repeat: no-repeat;
 }
 .dynamicPageItems.dynamicPageItems_nineItem {
 	background-image: url("http://akimages.shoplocal.com/listingimages/staticimages/homedepot/sbotd_background.jpg");
-	background-size: 110%;
 }
 .dynamicPageItems.dynamicPageItems_sixItem {
 	background-image: url("http://akimages.shoplocal.com/listingimages/staticimages/homedepot/plywood_921x718.png");
@@ -85,7 +84,7 @@
 	overflow: hidden;
 	position: relative;
 	width: 22.28%;
-	margin: 40px 20px 0;
+	margin: 60px 20px 0;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -159,7 +158,7 @@
 .dp_itemMedium:nth-child(2n+2) .dp_itemInfo {
 	position: absolute;
 	top: 0;
-	height: 110px;
+	height: 81px;
 }
 .dp_itemMedium .dp_itemInfo {
 	padding-top: 30px;
@@ -169,34 +168,34 @@
 
 
 .dp_price {
-	color: #000;
+	color: #fff;
 	font-weight: bold;
 	margin-bottom: 3px;
 	display: inline;
-}
-.dp_itemLarge .dp_price {
-	font-size: 100px;
-	color: #f96302;
-	line-height: .7;
-}
-.dp_itemMedium .dp_price {
-	font-size: 30px;
-	line-height: .9;
-	color: #f96302;
-}
-.dp_itemSmall .dp_price {
-	font-size: 30px;
-	line-height: .9;
+	position: absolute;
+	top: 55%;
 	background: rgba(234, 130, 34, .75);
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 	padding: 6px 6px 3px 20px;
-	border-left: 0;
 	text-align: right;
-	position: absolute;
-	top: 125px;
-	color: #fff;
+}
+.dp_itemLarge .dp_price {
+	font-size: 100px;
+	line-height: .8;
+	position: relative;
+	display: inline-block;
+	margin-left: -43px;
+	padding-left: 43px;
+}
+.dp_itemMedium .dp_price,
+.dp_itemSmall .dp_price {
+	font-size: 30px;
+	line-height: .9;
+}
+.dp_itemMedium:nth-child(2n+2) .dp_price {
+	top: 70%;
 }
 .dynamicPageContainer sup {
 	font-size: 0.6em;
@@ -222,6 +221,10 @@
 	font-size: 0.7em;
 	line-height: 1;
 }
+.dp_brandname {
+	font-size: 14px;
+	color: #666;
+}
 
 .dp_title {
 	font-weight: bold;
@@ -236,8 +239,8 @@
 	margin-top: 10px;
 }
 .dp_itemMedium .dp_title {
-	font-size: 17px;
-	height: 50px;
+	font-size: 15px;
+	height: 61px;
 	line-height: 1.1;
 	margin: 3px 0 10px;
 }
@@ -254,12 +257,16 @@
 .dp_itemLarge .dp_validdates {
 	font-size: 14px;
 }
+/*
 .dp_ratingsReviews {
-	
+	background: url(images/ratings.png) top right no-repeat;
+	width: 97%;
+	height: 19px;
+	margin-bottom: 8px;
 }
 .dp_itemMedium .dp_ratingsReviews {
-	
-}
+	background: url(images/ratings.png) top center no-repeat;
+}*/
 .dp_description {
 	font-size: 16px;
 	height: 76px;
@@ -280,10 +287,10 @@
 	margin: 0 0 3px;
 	background-position: 0 0;
 	background-repeat: no-repeat;
+	background-size: 100%;
 }
 .ad_header1 {
 	background-image: url('/images/banner.jpg'); /* may not be needed */
-	background-size: 100%;
 }
 
 .ad_header2 {
