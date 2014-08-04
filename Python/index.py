@@ -6,6 +6,7 @@ import sys
 import PyQt4
 import os.path
 import logging
+import time
 from gevent import monkey; monkey.patch_all()
 
 sys.stdout = sys.stderr
@@ -14,15 +15,15 @@ ghost = Ghost(download_images = True)
 
 @route('/listingimages/staticimages/homedepot/<filename>')
 def server_static_listingimages(filename):
-    return static_file(filename, root='c:/temp/cloud/listingimages/staticimages/homedepot')
+    return static_file(filename, root='C:/Git/DID/Python/listingimages/staticimages/homedepot')
 
 @route('/listingimages/Retailers/HomeDepot/<filename>')
 def server_static_listingimages(filename):
-    return static_file(filename, root='c:/temp/cloud/listingimages/Retailers/HomeDepot')
+    return static_file(filename, root='C:/Git/DID/Python/listingimages/Retailers/HomeDepot')
 
 @route('/static/<filename>')
 def server_static(filename):
-    return static_file(filename, root='c:/temp/cloud/static')
+    return static_file(filename, root='C:/Git/DID/Python/static')
 
 @route('/getpages')
 def getpages():
@@ -45,16 +46,17 @@ def dp_html():
 
 @route('/dp_image')
 def dp_image():
-
+    
+    start = time.time()
+    
     global c
     global ghost
 
-    if pn == Nothing:
-        pn = request.query['page']
-        if pn == None:
-            pn = "1"
+    pn = request.query['page']
+    if pn == None:
+        pn = "1"
     
-    root = 'c:/temp/cloud/cache'
+    root = 'C:/Git/DID/Python/cache'
     file = "page_" + pn + "_" + str(c) +  ".jpg"
 
     #if os.path.isfile(root + '/' + file) == False:    
@@ -65,7 +67,10 @@ def dp_image():
         ghost.capture_to(root + '/' + file)
 
         c = c + 1
-       
+     
+    end = time.time()
+    print str(end - start)        
+          
     return static_file(file, root=root)
 
 def get_markup(page, use_file_system=False):
@@ -81,7 +86,7 @@ def get_markup(page, use_file_system=False):
     data = json.loads(response)
     web_root=''        
     if use_file_system:
-        web_root='file:///c:/temp/cloud'
+        web_root='file:///c:/git/did/python'
     output = template('templates/page', data=data, web_root=web_root)
     return str(output)
 
@@ -90,7 +95,7 @@ def make_pages(pn, c):
     #global c
     global ghost
 
-    root = 'c:/temp/cloud/cache'
+    root = 'C:/Git/DID/Python/cache'
     file = "page_" + pn + "_" + str(c) +  ".jpg"
 
     markup = get_markup(pn, True)
@@ -98,8 +103,11 @@ def make_pages(pn, c):
     ghost.wait_for_page_loaded()
     ghost.capture_to(root + '/' + file)
     
-#run(host='localhost', port=8080, debug=False, server='tornado')
+run(host='localhost', port=8080, debug=False, server='tornado')
 
-
-for x in range(0, 600):
-    make_pages("2", x)
+#start = time.time()
+#for x in range(0, 600):
+#    make_pages("1", x)
+#
+#end = time.time()
+#print str(end - start)
