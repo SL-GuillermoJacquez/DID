@@ -1,0 +1,187 @@
+<html>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script src="/static/iscroll.js"></script> 
+
+<script type="text/javascript">
+
+var myScroll;
+
+function loaded () {
+
+	myScroll = new IScroll('#wrapper', {
+		scrollX: true,
+		scrollY: false,
+		momentum: false,
+		snap: true,
+		snapSpeed: 200,
+		keyBindings: true,
+		indicators: {
+			el: document.getElementById('indicator'),
+			resize: false
+		}
+	});
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+function pagesCallback(data){
+
+	$("#scroller").html("");
+	
+	var page = "";
+	for(var i=0; i<data.length; i++){
+		$("#scroller").append('<div class="slide"><div class="painting" style="height:1081px; width:919px; background: url(' + data[i].image + '); background-size: 100% 100%;"></div></div>');	
+	}
+}
+
+</script>
+
+<style type="text/css">
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	-ms-touch-action: none;
+}
+
+body, ul, li {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+body {
+	font-size: 12px;
+	font-family: ubuntu, helvetica, arial;
+	background: url("http://www.homedepot.com/hdus/en_US/DTCCOM/common/Themes/category/bathstyle/bg.jpg") repeat fixed left top rgba(0, 0, 0, 0);
+}
+
+#viewport {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+	background: #fff;
+	-webkit-box-shadow: 0 2px 5px 5px rgba(0,0,0,0.4);
+	box-shadow: 0 2px 5px 5px rgba(0,0,0,0.4);
+}
+
+.prevBtn, .nextBtn {
+	position: absolute;
+	top: 25%;
+    border: 0 none;
+    height: 204px;
+    width: 43px;
+	z-index: 1000;
+	outline: none;
+	cursor: pointer;
+}
+.prevBtn {
+    background: url("/static/HomeDepot_sprite_PADDLES.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	left: -20px;
+}
+.nextBtn {
+	background: url("/static/HomeDepot_sprite_PADDLES.png") no-repeat scroll -131px 0 rgba(0, 0, 0, 0);
+	right: -20px;
+}
+
+#wrapper {
+	width: 921px;
+	height: 1081px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+}
+
+#scroller {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 2763px;
+	height: 1081px;
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+	background-color: #444;
+}
+
+.slide {
+	width: 921px;
+	height: 1081px;
+	float: left;
+}
+
+.painting {
+	width: 921px;
+	height: 1081px;
+	margin: 0 auto;
+	border-right: 7px solid #000;
+}
+
+#indicator {
+	position: relative;
+	width: 81px;
+	height: 20px;
+	margin: 8px auto;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUBAMAAABohZD3AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QUGCDYztyDUJgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAGFBMVEUAAADNzc3Nzc3Nzc3Nzc3Nzc3Nzc3///8aWwwLAAAABnRSTlMAX5Ks3/nRD0HIAAAAAWJLR0QHFmGI6wAAAFtJREFUGFdjYGBgEHYNMWRAAJE0IHCEc5nSwEABxleD8JOgXMY0KBCA8FlgfAcIXwzGT4TwzWD8ZAjfDcZPgfDDYPxU7Hx09ejmoduH7h5096L7B8O/6OGBGl4APYg8TQ0XAScAAAAASUVORK5CYII=);
+}
+
+#dotty {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: #777;
+}
+
+</style>
+</head>
+<body onload="loaded()">
+
+
+
+
+<div id="viewport">
+	<img src="/static/DIDIV_HDheader.png" style="margin: 0 auto; display: block;" />
+		<input class="prevBtn" type="button" value="" onclick="myScroll.prev()" />
+		<input class="nextBtn" type="button" value="" onclick="myScroll.next()" />
+	<div id="wrapper">
+		<div id="scroller">
+		
+		
+			<div class="slide">
+				<div class="painting giotto"></div>
+			</div>
+			<div class="slide">
+				<div class="painting leonardo"></div>
+			</div>
+			<div class="slide">
+				<div class="painting gaugin"></div>
+			</div>		
+		</div>
+	</div>
+	<img src="/static/DIDIV_HDfooter.png" style="margin: 0 auto; display: block;" />
+</div>
+
+<div id="indicator" style="display: none;">
+	<div id="dotty"></div>
+</div>
+
+<script src="/getpages"></script>
+
+</body>
+</html>

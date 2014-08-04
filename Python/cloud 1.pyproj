@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{895379dc-ebcc-4c77-97a5-8e7612049c29}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>index.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <IsWindowsApplication>False</IsWindowsApplication>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Compile Include="bottle.py" />
+    <Compile Include="index.py" />
+    <Compile Include="index2.py" />
+    <Content Include="cache\page_1.jpg" />
+    <Content Include="cache\page_2.jpg" />
+    <Content Include="cache\page_3.jpg" />
+    <Content Include="cache\ss_page_3.jpg" />
+    <Content Include="static\blank.html" />
+    <Content Include="static\thirdparty.html" />
+    <Content Include="static\style.css" />
+    <Content Include="static\iscroll.js" />
+    <Content Include="static\DIDIV_HDcontentdock.png" />
+    <Content Include="static\DIDIV_HDfooter.png" />
+    <Content Include="static\DIDIV_HDheader.png" />
+    <Content Include="static\HomeDepot_sprite_PADDLES.png" />
+    <Content Include="static\ratings.png" />
+    <Content Include="static\banner.jpg" />
+    <Content Include="static\banner_social.jpg" />
+    <Content Include="templates\item.tpl" />
+    <Content Include="templates\large.tpl" />
+    <Content Include="templates\medium.tpl" />
+    <Content Include="templates\page.tpl" />
+    <Content Include="templates\small.tpl" />
+    <Content Include="templates\specialevent.tpl" />
+    <Content Include="templates\template1.tpl" />
+    <Content Include="templates\template2.tpl" />
+    <Content Include="adapter.wsgi" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="cache" />
+    <Folder Include="static" />
+    <Folder Include="templates" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
