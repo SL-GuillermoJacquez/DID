@@ -7,23 +7,24 @@ import PyQt4
 import os.path
 import logging
 import time
-from gevent import monkey; monkey.patch_all()
+
+#from gevent import monkey; monkey.patch_all()
 
 sys.stdout = sys.stderr
-c = 5
-ghost = Ghost(download_images = True)
+#ghost = Ghost(download_images = True)
+app_root = 'c:/git/did/python'
 
 @route('/listingimages/staticimages/homedepot/<filename>')
 def server_static_listingimages(filename):
-    return static_file(filename, root='C:/Git/DID/Python/listingimages/staticimages/homedepot')
+    return static_file(filename, root = app_root + '/listingimages/staticimages/homedepot')
 
 @route('/listingimages/Retailers/HomeDepot/<filename>')
 def server_static_listingimages(filename):
-    return static_file(filename, root='C:/Git/DID/Python/listingimages/Retailers/HomeDepot')
+    return static_file(filename, root = app_root + '/listingimages/Retailers/HomeDepot')
 
 @route('/static/<filename>')
 def server_static(filename):
-    return static_file(filename, root='C:/Git/DID/Python/static')
+    return static_file(filename, root = app_root + '/static')
 
 @route('/getpages')
 def getpages():
@@ -74,7 +75,7 @@ def dp_image():
     return static_file(file, root=root)
 
 def get_markup(page, use_file_system=False):
-		
+	
     response=""	
     if page == "1":
         response = '{"Label":"Lando\u0027s Cloud City","Image":"/StaticImages/HomeDepot/ourbestvalues_bucket.jpg","Name":"DID template 1","StylePath":"","TemplateID":500191,"TemplateGroupID":500340,"TotalPages":9,"Headers":[{"Message":"DID IV","ID":0}],"Footers":[{"Message":"A NEW HOPE","ID":0}],"DeviceBitmap":7,"ContentGroupTypeID":2,"ContentGroupTypeName":"Landing Page Hero","EventStartDate":"\/Date(1393431000000)\/","EventEndDate":"\/Date(1393646400000)\/","EventPostStartDate":"\/Date(1393431000000)\/","EventPostEndDate":"\/Date(1393646400000)\/","EventStartDateString":"2/26/2014 10:10:00 AM","EventEndDateString":"2/28/2014 10:00:00 PM","EventPostStartDateString":"2/26/2014 10:10:00 AM","EventPostEndDateString":"2/28/2014 10:00:00 PM","Items":[{"AdditionalDealInformation":"","BrandID":-2099997439,"BrandName":"Kohler","DealDescription":"$178","Description":"With its clean, simple design and efficient performance, this Highline water-conserving toilet combines both style and function. An innovative 1.28-gallon flush setting provides significant water savings of up to 16,500 gallons per year, compared to an old 3.5-gallon toilet, without sacrificing performance. This Complete Solution package includes everything necessary for installation.","FinalPrice":178.0000,"Image":"/Retailers/HomeDepot/202705234.jpg","PostStartDate":"2/19/2014 11:27:27 AM","PriceQualifier":"","ProductCode":"202705234","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"1/29/2014 11:59:00 PM","SaleStartDate":"1/23/2014 12:00:00 AM","Title":"KOHLER Highline Classic The Complete Solution 2-Piece 1.28 GPF Elongated Toilet in White","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":1,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2047771717},{"AdditionalDealInformation":"","BrandID":-2099948063,"BrandName":"ST. PAUL","DealDescription":"$159.00","Description":"A rich truffle finish is paired with a coral Colorpoint top in this beautiful Highland vanity. Perfect for any space, this 30 in. wide vanity has ample storage with its large bottom drawer and interior space. The vanity top is non-porous, easy to clean, bacteria and mold resistant.","FinalPrice":159.0000,"Image":"/Retailers/HomeDepot/204599288.jpg","PostStartDate":"2/19/2014 11:27:27 AM","PriceQualifier":"","ProductCode":"204599288","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"1/29/2014 11:59:00 PM","SaleStartDate":"1/23/2014 12:00:00 AM","Title":"St. Paul Highland 31 in. Vanity in Truffle with Cast Polymers Vanity Top in Coral","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":2,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2045205418},{"AdditionalDealInformation":"","BrandID":-2099999546,"BrandName":"Ryobi","DealDescription":"$129.00","Description":"The Ryobi 18-Volt ONE+ System introduces the next generation in cordless convenience. This 18-Gauge brad nailer features Airstrike Technology, which eliminates the need for noisy compressors, bulky hoses or expensive gas cartridges. This means faster setup and easier maneuvering on the job site. The Ryobi AirStrike P320 18-Gauge 2 in. Brad Nailer Drives 18-Gauge nails from 5/8 in. to 2 in. length. ","FinalPrice":129.0000,"Image":"/Retailers/HomeDepot/203810823.jpg","PostStartDate":"2/27/2014 12:00:00 AM","PriceQualifier":"","ProductCode":"203810823","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"3/5/2014 11:59:59 PM","SaleStartDate":"2/27/2014 12:00:00 AM","Title":"Ryobi One Plus 18-Volt 2 in. 18-Gauge Cordless Brad Nailer","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":3,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2041361916},{"AdditionalDealInformation":"","BrandID":-2099999966,"BrandName":"Werner","DealDescription":"$119.00","Description":"For a safe and secure climb up to the gutter that needs cleaning or the window that needs washing, use the Werner 20 ft. Aluminum Extension Ladder. It extends up to 20 ft. so you can get into the attic or up on the roof. The ladder is made of durable aluminum and features spring loaded locks for smooth, secure transitions to different heights. It is lightweight and easy to use.","FinalPrice":119.0000,"Image":"/Retailers/HomeDepot/100664516.jpg","PostStartDate":"2/19/2014 11:27:27 AM","PriceQualifier":"","ProductCode":"100664516","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"1/29/2014 11:59:00 PM","SaleStartDate":"1/23/2014 12:00:00 AM","Title":"Werner 20 ft. Aluminum Extension Ladder with 225 lb. Load Capacity Type II Duty Rating","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":4,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2047805487},{"AdditionalDealInformation":"","BrandID":-2099974259,"BrandName":"Pfister","DealDescription":"$98.00","Description":"A truly versatile design, the Pasadena Collection is a transitional piece that defies definition to complement a variety of decorative settings. Its clean curves and sturdy foundation radiate style, making this fixture a favorable choice for any bathroom decor. Available in a variety of finishes, Pasadena simplifies remodeling by featuring coordinating lavatory faucets with tub and shower products to offer a complete solution for today bathroom upgrade.","FinalPrice":98.0000,"Image":"/Retailers/HomeDepot/202044662.jpg","PostStartDate":"2/19/2014 11:27:27 AM","PriceQualifier":"","ProductCode":"202044662","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"1/29/2014 11:59:00 PM","SaleStartDate":"1/23/2014 12:00:00 AM","Title":"Pfister Pasadena 8 in. Widespread 2-Handle High-Arc Bathroom Faucet in Brushed Nickel","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":5,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2047750919},{"AdditionalDealInformation":"","BrandID":-2099999897,"BrandName":"Milwaukee","DealDescription":"$89.00","Description":"The industrys first subcompact hammer drill/driver delivers best-in-class power, speed and durability. For contractors, maintenance technicians, remodelers or anyone whos seeking portability and performance, the compact and lightweight M12 cordless hammer drill/driver gets the job done. It delivers best-in-class 275 in. -lbs. of torque and 0-400/0-1,500 RPM with the REDLITHIUM 12-volt battery (sold separately).The all-metal single-sleeve ratcheting chuck offers superior bit grip, so you wont have to stop for bit retightening or lost bits. An onboard fuel gauge and built-in LED light offer convenience and minimize interruptions, even during prolonged use. The REDLITHIUM Battery Pack (sold separately) delivers more work per charge and more work over pack life than the competitors.","FinalPrice":89.0000,"Image":"/Retailers/HomeDepot/204317434.jpg","PostStartDate":"2/27/2014 12:00:00 AM","PriceQualifier":"","ProductCode":"204317434","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"3/5/2014 11:59:59 PM","SaleStartDate":"2/27/2014 12:00:00 AM","Title":"Milwaukee M12 12-Volt Lithium-Ion 3/8 in. Cordless Hammer Drill/Driver","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":6,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2041358671},{"AdditionalDealInformation":"","BrandID":-2099994305,"BrandName":"Glacier Bay","DealDescription":"$88.00","Description":"The Glacier Bay Keelia 1-Handle Pull-Out Kitchen Faucet in Brushed Nickel is constructed of solid brass to ensure long-lasting performance and enjoyment. Its single lever handle meets ADA standards for ease of use in adjusting water temperature and volume. The pull-down sprayer features aerated and wide spray options, as well as a 48 in. braided hose for extended reach, making it ideal for filling large pots and pans or washing down the sink.","FinalPrice":88.0000,"Image":"/Retailers/HomeDepot/202733067.jpg","PostStartDate":"2/27/2014 12:00:00 AM","PriceQualifier":"","ProductCode":"202733067","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"3/5/2014 11:59:59 PM","SaleStartDate":"2/27/2014 12:00:00 AM","Title":"Glacier Bay Keelia 8 in. Single-Handle Pull-Out Sprayer Kitchen Faucet in Brushed Nickel","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":7,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2041351421},{"AdditionalDealInformation":"","BrandID":-2099994305,"BrandName":"Glacier Bay","DealDescription":"$88.00","Description":"The Glacier Bay 2-Piece High Efficiency Round Toilet in White is manufactured from durable vitreous china, which is resistant to stains, acid and abrasions for long-lasting beauty. This 2-piece toilet has a separate bowl and tank, and the round bowl can fit easily in most bathrooms. The white color can blend with many bathroom styles. Limited Lifetime Warranty.","FinalPrice":88.0000,"Image":"/Retailers/HomeDepot/202634188.jpg","PostStartDate":"2/19/2014 11:27:27 AM","PriceQualifier":"","ProductCode":"202634188","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"1/29/2014 11:59:00 PM","SaleStartDate":"1/23/2014 12:00:00 AM","Title":"Glacier Bay 2-Piece High Efficiency Round Toilet in White","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":8,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2045142785},{"AdditionalDealInformation":"","BrandID":-2099994305,"BrandName":"Glacier Bay","DealDescription":"$88.00","Description":"The Glacier Bay 2-Piece High Efficiency Round Toilet in White is manufactured from durable vitreous china, which is resistant to stains, acid and abrasions for long-lasting beauty. This 2-piece toilet has a separate bowl and tank, and the round bowl can fit easily in most bathrooms. The white color can blend with many bathroom styles. Limited Lifetime Warranty.","FinalPrice":88.0000,"Image":"/Retailers/HomeDepot/202634188.jpg","PostStartDate":"2/27/2014 12:00:00 AM","PriceQualifier":"","ProductCode":"202634188","ProductDescription":"","PromotionTypeID":0,"SaleEndDate":"3/5/2014 11:59:59 PM","SaleStartDate":"2/27/2014 12:00:00 AM","Title":"Glacier Bay 2-Piece High Efficiency Round Toilet in White","TypeID":1,"Url":"","PageIndex":1,"PageID":1,"DisplayOrder":9,"OriginalDeal":"","RetailerTemplateGroupID":500340,"RetailerTemplateID":500191,"RetailerTemplateName":"DID template 1","RetailerTemplateStylePath":"","UPC":"","ID":-2041379194}],"ListingLinks":[{"DisplayOrder":0,"GridListingOfferID":3,"ImageLocation":"","LinkOption":3,"LinkText":"Add To Cart","LinkType":8,"LinkUrl":"http://www.homedepot.com/webapp/wcs/stores/servlet/OrderItemAdd?storeId=10051&catalogId=10053&langId=-1&catEntryId_1=202634188&quantity_1=1&URL=OrderItemDisplay","Message":null,"ListingID":-2041379194,"ID":6654523},{"DisplayOrder":0,"GridListingOfferID":3,"ImageLocation":"","LinkOption":3,"LinkText":"Add To Cart","LinkType":8,"LinkUrl":"http://www.homedepot.com/webapp/wcs/stores/servlet/OrderItemAdd?storeId=10051&catalogId=10053&langId=-1&catEntryId_1=203810823&quantity_1=1&URL=OrderItemDisplay","Message":null,"ListingID":-2041361916,"ID":6660615},{"DisplayOrder":0,"GridListingOfferID":3,"ImageLocation":"","LinkOption":3,"LinkText":"Add To Cart","LinkType":8,"LinkUrl":"http://www.homedepot.com/webapp/wcs/stores/servlet/OrderItemAdd?storeId=10051&catalogId=10053&langId=-1&catEntryId_1=204317434&quantity_1=1&URL=OrderItemDisplay","Message":null,"ListingID":-2041358671,"ID":6672849},{"DisplayOrder":0,"GridListingOfferID":3,"ImageLocation":"","LinkOption":3,"LinkText":"Add To Cart","LinkType":8,"LinkUrl":"http://www.homedepot.com/webapp/wcs/stores/servlet/OrderItemAdd?storeId=10051&catalogId=10053&langId=-1&catEntryId_1=202733067&quantity_1=1&URL=OrderItemDisplay","Message":null,"ListingID":-2041351421,"ID":6677008}],"ListingRating":[{"AverageOverallRating":4.4324,"LargeStarImageLocation":"","ListingID":-2047805487,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/Werner-20-ft-Aluminum-Extension-Ladder-with-225-lb-Load-Capacity-Type-II-Duty-Rating-D1220-2/100664516","RecommendedCount":33,"SmallStarImageLocation":"","TotalReviewCount":37,"WriteReviewURL":"","ID":-2047805487},{"AverageOverallRating":4.134,"LargeStarImageLocation":"","ListingID":-2047771717,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/KOHLER-Highline-Classic-The-Complete-Solution-2-piece-1-28-GPF-Elongated-Toilet-in-White-K-11499-0/202705234","RecommendedCount":162,"SmallStarImageLocation":"","TotalReviewCount":209,"WriteReviewURL":"","ID":-2047771717},{"AverageOverallRating":4.1048,"LargeStarImageLocation":"","ListingID":-2047750919,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/Pfister-Pasadena-8-in-Widespread-2-Handle-High-Arc-Bathroom-Faucet-in-Brushed-Nickel-F-049-PDKK/202044662","RecommendedCount":78,"SmallStarImageLocation":"","TotalReviewCount":105,"WriteReviewURL":"","ID":-2047750919},{"AverageOverallRating":1,"LargeStarImageLocation":"","ListingID":-2045205418,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/prel80/HDUS/EN_US/diy_main/pg_diy.jsp?prod_id=204599288","RecommendedCount":0,"SmallStarImageLocation":"","TotalReviewCount":1,"WriteReviewURL":"","ID":-2045205418},{"AverageOverallRating":4.0148,"LargeStarImageLocation":"","ListingID":-2045142785,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/Glacier-Bay-2-Piece-High-Efficiency-Round-Toilet-in-White-N2428RB-N2428T/202634188","RecommendedCount":103,"SmallStarImageLocation":"","TotalReviewCount":135,"WriteReviewURL":"","ID":-2045142785},{"AverageOverallRating":4.0148,"LargeStarImageLocation":"","ListingID":-2041379194,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/Glacier-Bay-2-Piece-High-Efficiency-Round-Toilet-in-White-N2428RB-N2428T/202634188","RecommendedCount":103,"SmallStarImageLocation":"","TotalReviewCount":135,"WriteReviewURL":"","ID":-2041379194},{"AverageOverallRating":4.7633,"LargeStarImageLocation":"","ListingID":-2041361916,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/Ryobi-One-Plus-18-Volt-2-in-18-Gauge-Cordless-Brad-Nailer-P320/203810823","RecommendedCount":190,"SmallStarImageLocation":"","TotalReviewCount":207,"WriteReviewURL":"","ID":-2041361916},{"AverageOverallRating":4,"LargeStarImageLocation":"","ListingID":-2041358671,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/Milwaukee-M12-12-Volt-Lithium-Ion-3-8-in-Cordless-Hammer-Drill-Driver-2408-20/204317434","RecommendedCount":2,"SmallStarImageLocation":"","TotalReviewCount":2,"WriteReviewURL":"","ID":-2041358671},{"AverageOverallRating":2.1613,"LargeStarImageLocation":"","ListingID":-2041351421,"OverallRatingRange":5,"ProductReviewsURL":"http://www.homedepot.com/p/Glacier-Bay-Keelia-8-in-Single-Handle-Pull-Out-Sprayer-Kitchen-Faucet-in-Brushed-Nickel-FP4A4066BNV/202733067","RecommendedCount":7,"SmallStarImageLocation":"","TotalReviewCount":31,"WriteReviewURL":"","ID":-2041351421}],"ID":500191}'
@@ -86,28 +87,88 @@ def get_markup(page, use_file_system=False):
     data = json.loads(response)
     web_root=''        
     if use_file_system:
-        web_root='file:///c:/git/did/python'
+        web_root= 'file:///' + app_root
     output = template('templates/page', data=data, web_root=web_root)
     return str(output)
 
 def make_pages(pn, c):
+         
+    #global ghost
+    ghost = Ghost(download_images = True)
 
-    #global c
-    global ghost
+    #time.sleep( 1 )
 
-    root = 'C:/Git/DID/Python/cache'
+    root = app_root + '/cache'
     file = "page_" + pn + "_" + str(c) +  ".jpg"
 
     markup = get_markup(pn, True)
+
     ghost.main_frame.setHtml(markup)
     ghost.wait_for_page_loaded()
     ghost.capture_to(root + '/' + file)
-    
-run(host='localhost', port=8080, debug=False, server='tornado')
 
-#start = time.time()
-#for x in range(0, 600):
-#    make_pages("1", x)
-#
-#end = time.time()
-#print str(end - start)
+    
+#run(host='localhost', port=8080, debug=False, server='tornado')
+
+
+import threading
+import time
+
+exitFlag = 0
+
+class myThread (threading.Thread):       
+
+    def __init__(self, threadID, name, counter):
+        threading.Thread.__init__(self)        
+        self.threadID = threadID
+        self.name = name
+        self.counter = counter
+    def run(self):
+        print "Starting " + self.name + "\n"
+        start = time.time()        
+        for x in range(0, 600):
+            make_pages(self.name, x)
+        end = time.time()
+        print str(end - start)        
+        print "Exiting " + self.name + "\n"
+
+# Create new threads
+thread1 = myThread(1, "1", 1)
+thread2 = myThread(2, "2", 2)
+
+# Start new Threads
+thread1.start()
+thread2.start()
+
+print "Exiting Main Thread" + "\n"
+
+
+
+
+#import Queue
+#import threading
+#import urllib2
+
+# called by each thread
+#def do_work(q, n):
+    #start = time.time()
+    #for x in range(0, 600):
+    #    make_pages(n, x)
+    #end = time.time()
+    #print str(end - start)
+#    q.put('END')
+
+#q = Queue.Queue()
+
+#t = threading.Thread(target=do_work, args = (q,'1'))
+#t.daemon = True
+#t.start()
+
+#t = threading.Thread(target=do_work, args = (q,'2'))
+#t.daemon = True
+#t.start()
+
+#s = q.get()
+#print s
+
+
